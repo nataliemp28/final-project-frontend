@@ -1,0 +1,9 @@
+<section>
+  <ul class="row">
+    <li ng-repeat="user in usersIndex.all" class="four columns">
+      <a ui-sref="usersShow({ id: user.id })">
+        <h2>{{ user.username }}</h2>
+      </a>
+    </li>
+  </ul>
+</section>
