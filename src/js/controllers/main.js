@@ -1,5 +1,5 @@
 angular.module('finalProject')
-  .controller('MainController', MainController);
+.controller('MainController', MainController);
 
 MainController.$inject = ['$auth', '$state', '$rootScope'];
 function MainController($auth, $state, $rootScope) {
@@ -9,20 +9,22 @@ function MainController($auth, $state, $rootScope) {
   main.message = null;
   function logout() {
     $auth.logout()
-      .then(() => {
-        $state.go('home');
-      });
+    .then(() => {
+      $state.go('home');
+    });
   }
   const protectedStates = ['usersEdit', 'usersIndex', 'usersShow'];
 
-  function secureState(e, toState) {
-    main.message = null;
-    if(!$auth.isAuthenticated() && protectedStates.includes(toState.name)) {
+  function secureState(e, toState, toParams) {
+
+    if((!$auth.isAuthenticated() &&
+    protectedStates.includes(toState.name)) ||
+    toState.name === 'usersEdit' && (parseFloat(toParams.id) !== $auth.getPayload().id)) {
       e.preventDefault();
-      $state.go('login');
-      main.message = 'You must be logged in to perform that action';
+      $state.go('home');
     }
   }
+
   $rootScope.$on('$stateChangeStart', secureState);
 
   main.logout = logout;

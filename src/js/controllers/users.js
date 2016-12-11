@@ -1,7 +1,7 @@
 angular.module('finalProject')
-  .controller('UsersIndexController', UsersIndexController)
-  .controller('UsersShowController', UsersShowController)
-  .controller('UsersEditController', UsersEditController);
+.controller('UsersIndexController', UsersIndexController)
+.controller('UsersShowController', UsersShowController)
+.controller('UsersEditController', UsersEditController);
 
 UsersIndexController.$inject = ['User'];
 function UsersIndexController(User) {
@@ -9,10 +9,19 @@ function UsersIndexController(User) {
 
   usersIndex.all = User.query();
 }
+
 UsersShowController.$inject = ['User', '$state', '$auth'];
 function UsersShowController(User, $state, $auth) {
-  const usersShow = this;
 
+  const usersShow = this;
+  usersShow.user = User.get($state.params);
+
+  function isCurrentUser() {
+    return $auth.getPayload().id === parseFloat($state.params.id);
+  }
+
+  // get payload gives us current users id - user ID is IN TOKEN (BACKEND)
+  usersShow.isCurrentUser = isCurrentUser;
   usersShow.user = User.get($state.params);
 
   function deleteUser() {
@@ -20,10 +29,12 @@ function UsersShowController(User, $state, $auth) {
       $state.go('usersIndex');
     });
   }
+
   usersShow.delete = deleteUser;
   usersShow.isLoggedIn = $auth.isAuthenticated;
 }
 UsersEditController.$inject = ['User', '$state'];
+
 function UsersEditController(User, $state) {
   const usersEdit = this;
 
@@ -34,7 +45,5 @@ function UsersEditController(User, $state) {
       $state.go('usersShow', $state.params);
     });
   }
-
   this.update = update;
-
 }

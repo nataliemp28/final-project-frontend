@@ -30,6 +30,10 @@
         </li>
 
         <li ng-if="main.isLoggedIn()">
+          <a ng-click="main.logout()">Profile</a>
+        </li>
+
+        <li ng-if="main.isLoggedIn()">
           <a ui-sref="itemsIndex" ui-sref-active="active">View all items available</a>
         </li>
       </ul>
