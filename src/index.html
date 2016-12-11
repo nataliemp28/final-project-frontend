@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html ng-app="finalProject">
-  <head>
-    <meta charset="utf-8">
-    <title>Final Project</title>
-    <link rel="stylesheet" href="/css/vendor.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/vendor.js" charset="utf-8"></script>
-    <script src="/js/app.js" charset="utf-8"></script>
-  </head>
-  <body ng-controller="MainController as main">
-      <header class="container">
-        <h1>Natalie's Final Project</h1>
-        <nav>
-          <ul class="home-navbar">
-            <li><a ui-sref="usersIndex" ui-sref-active="active">Users</a></li>
-            <li ng-if="main.isLoggedIn()"><a ui-sref="usersIndex" ui-sref-active="active">List of Users</a></li>
-            <li ng-if="!main.isLoggedIn()"><a ui-sref="register" ui-sref-active="active">Register</a></li>
-            <li ng-if="!main.isLoggedIn()"><a ui-sref="login" ui-sref-active="active">Login</a></li>
-            <li ng-if="main.isLoggedIn()"><a ng-click="main.logout()">Logout</a></li>
-            <li><a ui-sref="itemsIndex" ui-sref-active="active">Items Available to swap</li>
-            <li ng-if="main.isLoggedIn()"><a ui-sref="itemsIndex"
-          </ul>
-        </nav>
-        <p ng-if="main.message">{{ main.message }}</p>
-      </header>
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <title>Final Project</title>
+  <link rel="stylesheet" href="/css/vendor.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/vendor.js" charset="utf-8"></script>
+  <script src="/js/app.js" charset="utf-8"></script>
+</head>
 
-      <main class="container" ui-view></main>
-    </body>
+<body ng-controller="MainController as main">
+
+  <header class="container">
+    <h1>London Fashion Exchange</h1>
+    <nav>
+      <ul class="home-navbar">
+        <li ng-if="main.isLoggedIn()">
+          <a ui-sref="usersIndex" ui-sref-active="active">List of Users</a>
+        </li>
+        <li ng-if="!main.isLoggedIn()">
+          <a ui-sref="register" ui-sref-active="active">Register</a>
+        </li>
+        <li ng-if="!main.isLoggedIn()">
+          <a ui-sref="login" ui-sref-active="active">Login</a>
+        </li>
+        <li ng-if="main.isLoggedIn()">
+          <a ng-click="main.logout()">Logout</a>
+        </li>
+
+        <li ng-if="main.isLoggedIn()">
+          <a ui-sref="itemsIndex" ui-sref-active="active">View all items available</a>
+        </li>
+      </ul>
+    </nav>
+    <p ng-if="main.message">{{ main.message }}</p>
+  </header>
+
+  <main class="container" ui-view></main>
+</body>
 </html>

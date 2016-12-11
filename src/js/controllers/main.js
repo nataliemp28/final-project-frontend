@@ -7,15 +7,13 @@ function MainController($auth, $state, $rootScope) {
 
   main.isLoggedIn = $auth.isAuthenticated;
   main.message = null;
-
   function logout() {
     $auth.logout()
       .then(() => {
-        $state.go('login');
+        $state.go('home');
       });
   }
-
-  const protectedStates = ['usersEdit', 'usersNew'];
+  const protectedStates = ['usersEdit', 'usersIndex', 'usersShow'];
 
   function secureState(e, toState) {
     main.message = null;

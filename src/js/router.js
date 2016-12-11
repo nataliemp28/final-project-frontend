@@ -1,8 +1,11 @@
 angular.module('finalProject')
   .config(Router);
 
-Router.$inject = ['$stateProvider', '$urlRouterProvider'];
-function Router($stateProvider, $urlRouterProvider) {
+Router.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+function Router($stateProvider, $urlRouterProvider, $locationProvider) {
+
+  $locationProvider.html5Mode(true);
+
   $stateProvider
     .state('usersIndex', {
       url: '/users',
@@ -33,7 +36,16 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/items',
       templateUrl: '/templates/itemsIndex.html',
       controller: 'ItemsIndexController as itemsIndex'
+    })
+    .state('itemsShow', {
+      url: '/item/:id',
+      templateUrl: '/templates/itemsShow.html',
+      controller: 'ItemsShowController as itemsShow'
+    })
+    .state('home', {
+      url: '/',
+      templateUrl: '/templates/home.html'
     });
 
-  $urlRouterProvider.otherwise('/users');
+  $urlRouterProvider.otherwise('/');
 }

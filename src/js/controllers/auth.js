@@ -1,4 +1,3 @@
-
 angular.module('finalProject')
   .controller('RegisterController', RegisterController)
   .controller('LoginController', LoginController);
@@ -15,7 +14,6 @@ function RegisterController($auth, $state) {
         $state.go('login');
       });
   }
-
   register.submit = submit;
 }
 
@@ -28,7 +26,7 @@ function LoginController($auth, $state) {
   function submit() {
     $auth.login(login.credentials)
       .then(() => {
-        $state.go('usersIndex');
+        $state.go('itemsIndex');
       });
   }
 

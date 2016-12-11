@@ -7,7 +7,7 @@ ItemsIndexController.$inject = ['Item'];
 function ItemsIndexController(Item) {
   const itemsIndex = this;
 
-  itemsIndex.all = Item.query();
+  itemsIndex.all = Item.get();
 }
 ItemsShowController.$inject = ['Item', '$state', '$auth'];
 function ItemsShowController(Item, $state, $auth) {
