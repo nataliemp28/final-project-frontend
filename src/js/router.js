@@ -45,6 +45,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('home', {
       url: '/',
       templateUrl: '/templates/home.html'
+    })
+    .state('requestsOffers', {
+      url: 'requestsOffers',
+      templateUrl: '/templates/requestsOffers.html',
+      controller: 'RequestsOffersController as requestsOffers'
     });
 
   $urlRouterProvider.otherwise('/');

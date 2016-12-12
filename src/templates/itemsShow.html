@@ -1,12 +1,28 @@
 <section>
   <h1>Items Show One</h1>
 
-      <h2>{{ itemsShow.item.image }}</h2>
+      <img ng-src="{{ itemsShow.item.image }}">
       <h4>{{ itemsShow.item.description }}</h4>
       <h4>{{ itemsShow.item.condition }}</h4>
       <h4>{{ itemsShow.item.size }}</h4>
 
 
-<a ng-if="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class="button">Edit</a>
-<button ng-if="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button>
+      <button ng-if="itemsShow.isLoggedIn() && itemsShow.isCurrentUser()" ui-sref="itemsEdit({ id: itemsEdit.item.id })">Edit</button>
+
+      <button ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()"
+      ui-sref="usersEdit({ id: itemsEdit.item.id })">Delete</button>
+
 </section>
+
+New Swap: {{ itemsShow.newSwap }}
+<br>
+<!-- Current User: {{itemsShow.user}} -->
+<form ng-submit="itemsShow.createSwap()">
+  Choose from these items to swap:
+  <ul>
+    <li ng-repeat="item in itemsShow.user.items">
+      <a role="button" ng-click="itemsShow.selectOffer(item.id)">{{ item.description}}</a>
+    </li>
+  </ul>
+  <input type="submit" value="Swap!">
+</form>
