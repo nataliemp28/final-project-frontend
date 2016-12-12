@@ -9,12 +9,21 @@ function ItemsIndexController(Item) {
 
   itemsIndex.all = Item.query();
 }
+
 ItemsShowController.$inject = ['Item', '$state', '$auth', 'User', 'Swap'];
 function ItemsShowController(Item, $state, $auth, User, Swap) {
+
   const itemsShow = this;
   const currentUserId = $auth.getPayload().id;
-  itemsShow.user = User.get({id: currentUserId});
 
+  function isCurrentUser() {
+    return $auth.getPayload().id === parseFloat($state.params.id);
+  }
+  // get payload gives us current users id - user ID is IN TOKEN (BACKEND)
+  itemsShow.isCurrentUser = isCurrentUser;
+  itemsShow.item = Item.get($state.params);
+
+  itemsShow.user = User.get({id: currentUserId});
 
   Item.get($state.params).$promise.then((data) => {
     itemsShow.item = data;
@@ -47,6 +56,7 @@ function ItemsShowController(Item, $state, $auth, User, Swap) {
   itemsShow.delete = deleteItem;
   itemsShow.isLoggedIn = $auth.isAuthenticated;
 }
+
 ItemsEditController.$inject = ['Item', '$state'];
 function ItemsEditController(Item, $state) {
   const itemsEdit = this;

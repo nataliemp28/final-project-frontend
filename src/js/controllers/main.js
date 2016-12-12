@@ -13,7 +13,7 @@ function MainController($auth, $state, $rootScope) {
       $state.go('home');
     });
   }
-  const protectedStates = ['usersEdit', 'usersIndex', 'usersShow'];
+  const protectedStates = ['usersEdit'];
 
   function secureState(e, toState, toParams) {
 

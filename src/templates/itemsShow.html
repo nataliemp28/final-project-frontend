@@ -7,10 +7,10 @@
       <h4>{{ itemsShow.item.size }}</h4>
 
 
-      <button ng-if="itemsShow.isLoggedIn() && itemsShow.isCurrentUser()" ui-sref="itemsEdit({ id: itemsEdit.item.id })">Edit</button>
+      <button ng-if="itemsShow.isLoggedIn() && itemsShow.isCurrentUser()" ui-sref="itemsEdit({ id: itemsShow.item.id })">Edit</button>
 
-      <button ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()"
-      ui-sref="usersEdit({ id: itemsEdit.item.id })">Delete</button>
+      <button ng-if="itemsShow.isCurrentUser() && itemsShow.isLoggedIn()"
+      ui-sref="itemsEdit({ id: itemsShow.item.id })">Delete</button>
 
 </section>
 

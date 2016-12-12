@@ -1,18 +1,25 @@
 <section>
-<form novalidate ng-submit="itemsEdit.update()">
-  <div>
-    <label>Image</label>
-    <input type="text" placeholder="image" ng-model="itemsEdit.item.image">
-  </div>
-  <div>
-    <label>Description</label>
-    <input type="text" placeholder="description" ng-model="itemsEdit.item.description">
-  </div>
-  <div>
-    <label>Description</label>
-    <input type="text" placeholder="description" ng-model="itemsEdit.item.description">
-  </div>
+  <form novalidate ng-submit="itemsEdit.update()">
 
-  <button>Update</button>
-</form>
+    <!-- <input type="hidden" name="_method" value="put"/> -->
+
+    <div>
+      <label>Image</label>
+      <input type="text" placeholder="image" ng-model="itemsEdit.item.image">
+    </div>
+    <div>
+      <label>Description</label>
+      <input type="text" placeholder="description" ng-model="itemsEdit.item.description">
+    </div>
+    <div>
+      <label>Condition</label>
+      <input type="text" placeholder="condition" ng-model="itemsEdit.item.condition">
+    </div>
+    <div>
+      <label>Size</label>
+      <input type="text" placeholder="size" ng-model="itemsEdit.item.size">
+    </div>
+
+    <button>Update</button>
+  </form>
 </section>

@@ -42,12 +42,17 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: '/templates/itemsShow.html',
       controller: 'ItemsShowController as itemsShow'
     })
+    .state('itemsEdit', {
+      url: '/items/:id/edit',
+      templateUrl: '/templates/itemsEdit.html',
+      controller: 'ItemsEditController as itemsEdit'
+    })
     .state('home', {
       url: '/',
       templateUrl: '/templates/home.html'
     })
     .state('requestsOffers', {
-      url: 'requestsOffers',
+      url: '/requestsOffers',
       templateUrl: '/templates/requestsOffers.html',
       controller: 'RequestsOffersController as requestsOffers'
     });
