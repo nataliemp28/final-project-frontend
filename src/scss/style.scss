@@ -5,3 +5,12 @@
 body {
   background-color: azure;
 }
+
+.alreadyOffered {
+  a {
+    text-decoration: line-through;
+    cursor: default;
+    color: grey;
+    opacity: 0.5;
+  }
+}

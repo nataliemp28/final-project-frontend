@@ -16,12 +16,13 @@
 
 New Swap: {{ itemsShow.newSwap }}
 <br>
+<button ng-click="itemsShow.toggleForm()">I want this!</button>
 <!-- Current User: {{itemsShow.user}} -->
-<form ng-submit="itemsShow.createSwap()">
+<form ng-submit="itemsShow.createSwap()" ng-show="itemsShow.formVisible">
   Choose from these items to swap:
   <ul>
-    <li ng-repeat="item in itemsShow.user.items">
-      <a role="button" ng-click="itemsShow.selectOffer(item.id)">{{ item.description}}</a>
+    <li ng-repeat="item in itemsShow.user.items" ng-class="{'alreadyOffered': item.alreadyOffered}">
+      <a role="button" ng-click="itemsShow.selectOffer(item)">{{ item.description}}</a>
     </li>
   </ul>
   <input type="submit" value="Swap!">

@@ -1,6 +1,23 @@
 angular.module('finalProject')
 .controller('RequestsOffersController', RequestsOffersController);
 
-RequestsOffersController.$inject['Swap', '$state', '$Auth']
+RequestsOffersController.$inject = ['Item', 'Swap', '$state', '$auth', 'RequestsOffers'];
 
-controllers are for restful routes. This is where you write your functions.
+function RequestsOffersController(Item, Swap, $state, $auth, RequestsOffers) {
+  const requestsOffersIndex = this;
+  const currentUserId = $auth.getPayload().id;
+
+  requestsOffersIndex.myRequests = [];
+  requestsOffersIndex.myOffers = [];
+
+  requestsOffersIndex.all = RequestsOffers.query();
+  requestsOffersIndex.all.$promise.then(requestsOffers => {
+    requestsOffers.forEach(requestOffer => {
+      if (requestOffer.offer_id === currentUserId) {
+        requestsOffersIndex.myRequests.push(requestOffer);
+      } else {
+        requestsOffersIndex.myOffers.push(requestOffer);
+      }
+    });
+  });
+}

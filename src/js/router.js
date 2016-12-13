@@ -27,6 +27,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: '/templates/usersShow.html',
       controller: 'UsersShowController as usersShow'
     })
+    .state('usersProfile', {
+      url: '/users/profile',
+      templateUrl: '/templates/usersProfile.html',
+      controller: 'UsersShowController as usersProfile'
+    })
     .state('usersEdit', {
       url: '/users/:id/edit',
       templateUrl: '/templates/usersEdit.html',
@@ -38,7 +43,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'ItemsIndexController as itemsIndex'
     })
     .state('itemsShow', {
-      url: '/item/:id',
+      url: '/items/:id',
       templateUrl: '/templates/itemsShow.html',
       controller: 'ItemsShowController as itemsShow'
     })
@@ -46,6 +51,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/items/:id/edit',
       templateUrl: '/templates/itemsEdit.html',
       controller: 'ItemsEditController as itemsEdit'
+    })
+    .state('itemsNew', {
+      url: '/items/new',
+      templateUrl: '/templates/itemsNew.html',
+      controller: 'ItemsNewController as itemsNew'
     })
     .state('home', {
       url: '/',

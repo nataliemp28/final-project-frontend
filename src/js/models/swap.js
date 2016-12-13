@@ -3,7 +3,7 @@ angular.module('finalProject')
 
 Swap.$inject = ['$resource', 'API_URL'];
 function Swap($resource, API_URL) {
-  return new $resource(`${API_URL}/swaps/:id`, { id: '@_id' }, {
+  return new $resource(`${API_URL}/swaps/:id`, { id: '@id' }, {
     update: { method: 'PUT' }
   });
 }

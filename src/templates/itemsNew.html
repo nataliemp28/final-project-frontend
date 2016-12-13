@@ -1,0 +1,22 @@
+<section class="row">
+  <form ng-submit="itemsNew.create()">
+    <div class="twelve columns">
+      <label>Image</label>
+      <input type="text" name="image" placeholder="image" ng-model="itemsNew.item.image" class="u-full-width">
+    </div>
+    <div class="twelve columns">
+      <label>Description</label>
+      <input type="text" name="description" placeholder="description" ng-model="itemsNew.item.description" class="u-full-width">
+    </div>
+    <div class="twelve columns">
+      <label>Condition</label>
+      <input type="text" name="condition" placeholder="condition" ng-model="itemsNew.item.condition" class="u-full-width">
+    </div>
+    <div class="twelve columns">
+      <label>Size</label>
+      <input type="text" name="size" placeholder="condition" ng-model="itemsNew.item.size" class="u-full-width">
+    </div>
+
+    <button>Create</button>
+  </form>
+</section>
