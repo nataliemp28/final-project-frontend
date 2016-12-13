@@ -27,11 +27,6 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: '/templates/usersEdit.html',
       controller: 'UsersEditController as usersEdit'
     })
-    .state('usersProfile', {
-      url: '/users/:id/profile',
-      templateUrl: '/templates/usersProfile.html',
-      controller: 'UsersProfileController as usersProfile'
-    })
     .state('itemsIndex', {
       url: '/items',
       templateUrl: '/templates/itemsIndex.html',

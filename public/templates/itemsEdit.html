@@ -3,10 +3,12 @@
 
     <!-- <input type="hidden" name="_method" value="put"/> -->
 
-    <div>
+    <div class="twelve columns">
       <label>Image</label>
-      <input type="text" placeholder="image" ng-model="itemsEdit.item.image">
+
+      <drag-drop base64="itemsEdit.item.base64" src="itemsEdit.item.image">Add New Image</drag-drop>
     </div>
+
     <div>
       <label>Description</label>
       <input type="text" placeholder="description" ng-model="itemsEdit.item.description">

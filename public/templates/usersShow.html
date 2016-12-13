@@ -4,9 +4,9 @@
   <img ng-src="{{ usersShow.user.image }}">
   <h6>{{ usersShow.user.username }}</h6>
   <h6>{{ usersShow.user.email }}</h6>
-  <h6>{{ usersShow.user.bio }}</h6>
-  <h6>{{ usersShow.user.dress_size }}</h6>
-  <h6>{{ usersShow.user.shoe_size }}</h6>
+  <h6><strong>Bio: </strong>{{ usersShow.user.bio }}</h6>
+  <h6>Dress Size: {{ usersShow.user.dress_size }}</h6>
+  <h6>Shoe Size: {{ usersShow.user.shoe_size }}</h6>
 
   <button ng-if="usersShow.isLoggedIn() && usersShow.isCurrentUser()" ui-sref="usersEdit({ id: usersShow.user.id })">Edit</button>
 
@@ -15,3 +15,8 @@
 
   <button ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()"
   ui-sref="itemsNew">Add a new Item</button>
+
+  <ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()">
+  <ul>
+    <li ng-repeat="item in usersShow.user.items"><h4>{{ item.description }}</h4></li>
+  </ul>
