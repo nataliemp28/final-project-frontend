@@ -1,9 +1,10 @@
 angular.module('finalProject')
 .controller('RequestsOffersController', RequestsOffersController);
 
-RequestsOffersController.$inject = ['Item', 'Swap', '$state', '$auth', 'RequestsOffers'];
+RequestsOffersController.$inject = ['Item', 'Swap', '$state', '$auth', 'RequestsOffers', '$scope'];
 
-function RequestsOffersController(Item, Swap, $state, $auth, RequestsOffers) {
+function RequestsOffersController(Item, Swap, $state, $auth, RequestsOffers, $scope) {
+
   const requestsOffersIndex = this;
   const currentUserId = $auth.getPayload().id;
 
@@ -18,6 +19,10 @@ function RequestsOffersController(Item, Swap, $state, $auth, RequestsOffers) {
       } else {
         requestsOffersIndex.myOffers.push(requestOffer);
       }
+
+      $scope.delete = function() {
+        $scope.requestsOffers.myRequests.splice(this.$index, 1);
+      };
     });
   });
 }

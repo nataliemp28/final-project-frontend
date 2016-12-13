@@ -71,10 +71,10 @@ function ItemsShowController(Item, $state, $auth, User, Swap) {
     //
     // if (thisSwap === 'unique')
 
-      Swap.save(itemsShow.newSwap, (swap) => {
-        console.log('saved swap:', swap);
-        $state.go('requestsOffers');
-      });
+    Swap.save(itemsShow.newSwap, (swap) => {
+      console.log('saved swap:', swap);
+      $state.go('requestsOffers');
+    });
   }
 
   function deleteItem() {
