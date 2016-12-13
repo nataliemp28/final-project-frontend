@@ -1,8 +1,8 @@
 angular.module('finalProject')
-  .controller('ItemsIndexController', ItemsIndexController)
-  .controller('ItemsShowController', ItemsShowController)
-  .controller('ItemsEditController', ItemsEditController)
-  .controller('ItemsNewController', ItemsNewController);
+.controller('ItemsIndexController', ItemsIndexController)
+.controller('ItemsNewController', ItemsNewController)
+.controller('ItemsShowController', ItemsShowController)
+.controller('ItemsEditController', ItemsEditController);
 
 ItemsIndexController.$inject = ['Item'];
 function ItemsIndexController(Item) {
@@ -36,9 +36,9 @@ function ItemsShowController(Item, $state, $auth, User, Swap) {
 
     User.get({id: currentUserId}).$promise.then((data) => {
       itemsShow.user = data;
+      
 
       console.log('User current items:', itemsShow.user.item_ids);
-
 
       itemsShow.item.requests.forEach(function(request) {
 
@@ -56,7 +56,7 @@ function ItemsShowController(Item, $state, $auth, User, Swap) {
     itemsShow.newSwap = {
       request_id: itemsShow.item.id,
       offer_id: null,
-      accepted: false
+      accepted: null
     };
   });
 
@@ -65,18 +65,13 @@ function ItemsShowController(Item, $state, $auth, User, Swap) {
       itemsShow.newSwap.offer_id = item.id;
     }
   }
-
   function createSwap() {
-    // const thisSwap = itemsShow.item.data + resource.request.description.toString();
-    //
-    // if (thisSwap === 'unique')
 
     Swap.save(itemsShow.newSwap, (swap) => {
       console.log('saved swap:', swap);
       $state.go('requestsOffers');
     });
   }
-
   function deleteItem() {
     itemsShow.item.$remove(() => {
       $state.go('itemsIndex');
@@ -89,19 +84,30 @@ function ItemsShowController(Item, $state, $auth, User, Swap) {
   itemsShow.isLoggedIn = $auth.isAuthenticated;
 }
 
-ItemsNewController.$inject = ['Item', '$state'];
-function ItemsNewController(Item, $state) {
+
+ItemsNewController.$inject = ['Item', '$state', '$auth'];
+function ItemsNewController(Item, $state, $auth) {
+
   const itemsNew = this;
+  const currentUser = $auth.getPayload().id;
 
-  itemsNew.item = {};
+  console.log(currentUser);
+  //
+  itemsNew.user = currentUser;
 
-  function createItem() {
-    Item.save(itemsNew.item, () => {
-      $state.go('itemsIndex');
+  console.log(currentUser);
+
+  console.log(itemsNew.user);
+
+  function create() {
+    itemsNew.item.user_id = currentUser;
+    console.log(itemsNew.item);
+    Item.save(itemsNew.item, (item) => {
+      $state.go('itemsIndex', { id: item.id });
     });
   }
-
-  itemsNew.create = createItem;
+  itemsNew.create = create;
+  console.log(itemsNew.create);
 }
 
 ItemsEditController.$inject = ['Item', '$state'];

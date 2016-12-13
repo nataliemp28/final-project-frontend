@@ -1,22 +1,30 @@
-<h1>My Requests</h1>
+<h1>My Requests</h1> I am requesting these things in exchange for whatever.
 
+<!-- Here: {{requestsOffers.currentUser}} -->
 <ul>
-
-  <li ng-repeat="myRequest in requestsOffers.myRequests">
-    Request: {{myRequest.request.description}}<br>
-    Offer: {{myRequest.offer.description}}
-    <button ng-click="delete()">Cancel Request</button>
-  </li>
-
+  <div ng-repeat="item in requestsOffers.currentUser.items">
+    <li ng-repeat="swap in item.offers">
+      Request: {{swap.request.description}}<br>
+      Offer: {{swap.offer.description}}<br>
+      <span ng-show="swap.accepted === null">Status: Pending</span><br>
+      <span ng-show="!swap.accepted">Status: Declined</span><br>
+      <span ng-show="swap.accepted">Status: Accepted</span><br>
+      <button ng-click="requestsOffers.cancelRequest(swap)" ng-show="!swap.accepted">Cancel Request</button>
+    </li>
+  </div>
 </ul>
 
-<h1>My Offers</h1>
+
+<h1>My Offers</h1> Someone wants these things from me.
 
 <ul>
-  <li ng-repeat="myOffer in requestsOffers.myOffers">
-    Request: {{myOffer.request.description}}<br>
-    Offer: {{myOffer.offer.description}}
-    <button ng-click="button">Accept</button>
-    <button ng-click="button">Decline</button>
-  </li>
+  <div ng-repeat="item in requestsOffers.currentUser.items">
+    <li ng-repeat="swap in item.requests">
+      Request: {{swap.request.description}}<br>
+      Offer: {{swap.offer.description}}
+      <button ng-click="requestsOffers.acceptSwap(swap)" ng-class="{'accepted': swap.accepted}">Accept</button>
+      <button ng-show="swap.accepted">Email owner</button>
+      <button ng-click="requestsOffers.declineSwap(swap)" ng-class="{'declined': swap.accepted === false}">Decline</button>
+    </li>
+  </div>
 </ul>

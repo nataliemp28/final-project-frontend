@@ -2,11 +2,12 @@
   <ul class="row">
     <li ng-repeat="item in itemsIndex.all" class="four columns">
       <a ui-sref="itemsShow({ id: item.id })">
-        <img ng-src="{{ itemsShow.item.image }}">
+        <img ng-src="{{ item.image }}">
         <h2>{{ item.description }}</h2>
         <h2>{{ item.condition }}</h2>
         <h2>{{ item.size }}</h2>
         <h2>{{ item.user_id.username }}</h2>
+  
       </a>
     </li>
   </ul>

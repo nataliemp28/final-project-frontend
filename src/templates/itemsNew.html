@@ -2,6 +2,11 @@
   <form ng-submit="itemsNew.create()">
     <div class="twelve columns">
       <label>Image</label>
+
+          <!-- <drag-drop base64="createPost.post.base64" src="createPost.post.image"></drag-drop> -->
+
+          <drag-drop base64="itemsNew.item.base64" src="itemsNew.item.image"></drag-drop>
+
       <input type="text" name="image" placeholder="image" ng-model="itemsNew.item.image" class="u-full-width">
     </div>
     <div class="twelve columns">
@@ -14,7 +19,7 @@
     </div>
     <div class="twelve columns">
       <label>Size</label>
-      <input type="text" name="size" placeholder="condition" ng-model="itemsNew.item.size" class="u-full-width">
+      <input type="text" name="size" placeholder="size" ng-model="itemsNew.item.size" class="u-full-width">
     </div>
 
     <button>Create</button>

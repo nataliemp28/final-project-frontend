@@ -1,20 +1,22 @@
 <section>
   <h1>Items Show One</h1>
 
-      <img ng-src="{{ itemsShow.item.image }}">
-      <h4>{{ itemsShow.item.description }}</h4>
-      <h4>{{ itemsShow.item.condition }}</h4>
-      <h4>{{ itemsShow.item.size }}</h4>
+  <img ng-src="{{ itemsShow.item.image }}">
+  <h6>{{ itemsShow.item.description }}</h6>
+  <h6>{{ itemsShow.item.condition }}</h6>
+  <h6>{{ itemsShow.item.size }}</h6>
 
+  <button ng-if="itemsShow.isCurrentUser() && itemsShow.isLoggedIn()" ui-sref="itemsEdit({ id: itemsShow.item.id })">Edit</button>
 
-      <button ng-if="itemsShow.isLoggedIn() && itemsShow.isCurrentUser()" ui-sref="itemsEdit({ id: itemsShow.item.id })">Edit</button>
-
-      <button ng-if="itemsShow.isCurrentUser() && itemsShow.isLoggedIn()"
-      ui-sref="itemsEdit({ id: itemsShow.item.id })">Delete</button>
+  <button ng-if="itemsShow.isCurrentUser() && itemsShow.isLoggedIn()"
+  ui-sref="itemsShow.delete({ id: itemsShow.item.id })">Delete</button>
 
 </section>
 
 New Swap: {{ itemsShow.newSwap }}
+
+Item image: {{ itemsShow.item.image }}
+
 <br>
 <button ng-click="itemsShow.toggleForm()">I want this!</button>
 <!-- Current User: {{itemsShow.user}} -->

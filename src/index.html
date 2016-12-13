@@ -16,9 +16,6 @@
     <h1>London Fashion Exchange</h1>
     <nav>
       <ul class="home-navbar">
-        <li ng-if="main.isLoggedIn()">
-          <a ui-sref="usersIndex" ui-sref-active="active">List of Users</a>
-        </li>
 
         <li ng-if="!main.isLoggedIn()">
           <a ui-sref="register" ui-sref-active="active">Register</a>
@@ -26,16 +23,23 @@
         <li ng-if="!main.isLoggedIn()">
           <a ui-sref="login" ui-sref-active="active">Login</a>
         </li>
+
+        <p class="welcome">Welcome {{ main.username }} to the London Fashion Exchange</p>
+
+        <li ng-if="main.isLoggedIn()">
+          <a ui-sref="usersIndex" ui-sref-active="active">List of Users</a>
+        </li>
         <li ng-if="main.isLoggedIn()">
           <a ng-click="main.logout()">Logout</a>
         </li>
-
         <li ng-if="main.isLoggedIn()">
-          <a ui-sref="usersProfile" ui-sref-active="active">Profile</a>
+          <a ui-sref="users.id" ui-sref-active="active">Profile</a>
         </li>
-
         <li ng-if="main.isLoggedIn()">
           <a ui-sref="itemsIndex" ui-sref-active="active">View all items available</a>
+        </li>
+        <li ng-if="main.isLoggedIn()">
+          <a ui-sref="requestsOffers" ui-sref-active="active">View my requests & offers</a>
         </li>
       </ul>
     </nav>

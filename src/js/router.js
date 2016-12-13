@@ -12,35 +12,35 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: '/templates/usersIndex.html',
       controller: 'UsersIndexController as usersIndex'
     })
-    .state('register', {
-      url: '/register',
-      templateUrl: '/templates/register.html',
-      controller: 'RegisterController as register'
-    })
-    .state('login', {
-      url: '/login',
-      templateUrl: '/templates/login.html',
-      controller: 'LoginController as login'
+    .state('usersNew', {
+      url: '/users/new',
+      templateUrl: '/templates/usersNew.html',
+      controller: 'UsersNewController as usersNew'
     })
     .state('usersShow', {
-      url: '/user/:id',
+      url: '/users/:id',
       templateUrl: '/templates/usersShow.html',
       controller: 'UsersShowController as usersShow'
-    })
-    .state('usersProfile', {
-      url: '/users/profile',
-      templateUrl: '/templates/usersProfile.html',
-      controller: 'UsersShowController as usersProfile'
     })
     .state('usersEdit', {
       url: '/users/:id/edit',
       templateUrl: '/templates/usersEdit.html',
       controller: 'UsersEditController as usersEdit'
     })
+    .state('usersProfile', {
+      url: '/users/:id/profile',
+      templateUrl: '/templates/usersProfile.html',
+      controller: 'UsersProfileController as usersProfile'
+    })
     .state('itemsIndex', {
       url: '/items',
       templateUrl: '/templates/itemsIndex.html',
       controller: 'ItemsIndexController as itemsIndex'
+    })
+    .state('itemsNew', {
+      url: '/items/new',
+      templateUrl: '/templates/itemsNew.html',
+      controller: 'ItemsNewController as itemsNew'
     })
     .state('itemsShow', {
       url: '/items/:id',
@@ -52,11 +52,6 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: '/templates/itemsEdit.html',
       controller: 'ItemsEditController as itemsEdit'
     })
-    .state('itemsNew', {
-      url: '/items/new',
-      templateUrl: '/templates/itemsNew.html',
-      controller: 'ItemsNewController as itemsNew'
-    })
     .state('home', {
       url: '/',
       templateUrl: '/templates/home.html'
@@ -65,6 +60,16 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/requestsOffers',
       templateUrl: '/templates/requestsOffers.html',
       controller: 'RequestsOffersController as requestsOffers'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: '/templates/register.html',
+      controller: 'RegisterController as register'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: '/templates/login.html',
+      controller: 'LoginController as login'
     });
 
   $urlRouterProvider.otherwise('/');

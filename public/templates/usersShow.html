@@ -1,15 +1,17 @@
 <section>
   <h1>Users Show ONE user</h1>
 
-
-  <h2>{{ usersShow.user.username }}</h2>
-  <h4>{{ usersShow.user.email }}</h4>
   <img ng-src="{{ usersShow.user.image }}">
+  <h6>{{ usersShow.user.username }}</h6>
+  <h6>{{ usersShow.user.email }}</h6>
+  <h6>{{ usersShow.user.bio }}</h6>
+  <h6>{{ usersShow.user.dress_size }}</h6>
+  <h6>{{ usersShow.user.shoe_size }}</h6>
 
   <button ng-if="usersShow.isLoggedIn() && usersShow.isCurrentUser()" ui-sref="usersEdit({ id: usersShow.user.id })">Edit</button>
 
   <button ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()"
-  ui-sref="usersEdit({ id: usersShow.user.id })">Delete</button>
+  ui-sref="usersShow.delete({ id: usersShow.user.id })">Delete</button>
 
   <button ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()"
-  ui-sref="/itemsNew">Add a new Item</button>
+  ui-sref="itemsNew">Add a new Item</button>

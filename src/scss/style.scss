@@ -14,3 +14,16 @@ body {
     opacity: 0.5;
   }
 }
+.welcome {
+  color: darkgrey;
+  font-size: 12px;
+}
+
+button {
+  &.accepted {
+    color: limegreen;
+  }
+  &.declined {
+    color: red;
+  }
+}
