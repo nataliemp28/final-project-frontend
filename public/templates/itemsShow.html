@@ -1,10 +1,15 @@
 <section>
   <h1>Items Show One</h1>
 
-  <img ng-src="{{ itemsShow.item.image }}">
-  <h6>{{ itemsShow.item.description }}</h6>
-  <h6>{{ itemsShow.item.condition }}</h6>
-  <h6>{{ itemsShow.item.size }}</h6>
+  <div class="container">
+
+    <div class="row">
+      <div class="one column"><img class="item"ng-src="{{ itemsShow.item.image }}"></div>
+      <h6>{{ itemsShow.item.description }}</h6>
+      <h6>{{ itemsShow.item.condition }}</h6>
+      <h6>{{ itemsShow.item.size }}</h6>
+    </div>
+  </div>
 
   <button ng-if="itemsShow.isCurrentUser() && itemsShow.isLoggedIn()" ui-sref="itemsEdit({ id: itemsShow.item.id })">Edit</button>
 
@@ -13,13 +18,9 @@
 
 </section>
 
-<!-- New Swap: {{ itemsShow.newSwap }}
-
-Item image: {{ itemsShow.item.image }} -->
-
 <br>
 <button ng-click="itemsShow.toggleForm()">I want this!</button>
-<!-- Current User: {{itemsShow.user}} -->
+
 <form ng-submit="itemsShow.createSwap()" ng-show="itemsShow.formVisible">
   Choose from these items to swap:
   <ul>

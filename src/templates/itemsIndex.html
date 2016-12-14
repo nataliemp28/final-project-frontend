@@ -1,14 +1,16 @@
 <section>
-  <ul class="row">
-    <li ng-repeat="item in itemsIndex.all" class="four columns">
-      <a ui-sref="itemsShow({ id: item.id })">
-        <img ng-src="{{ item.image }}">
-        <h2>{{ item.description }}</h2>
-        <h2>{{ item.condition }}</h2>
-        <h2>{{ item.size }}</h2>
-        <h2>{{ item.user_id.username }}</h2>
-  
-      </a>
-    </li>
-  </ul>
+  <div class="container">
+    <div class="row">
+      <ul>
+        <li ng-repeat="item in itemsIndex.all" class="three columns" id="itemsIndex">
+          <a ui-sref="itemsShow({ id: item.id })">
+            <img class="item" ng-src="{{ item.image }}"></a>
+            <p>{{ item.description }}</p>
+            <p>{{ item.condition }}</p>
+            <p>{{ item.size }}</p>
+            <p>{{ item.user_id.username }}</p>
+
+
+        </li>
+      </ul>
 </section>

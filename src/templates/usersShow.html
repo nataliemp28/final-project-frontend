@@ -1,10 +1,10 @@
 <section>
   <h1>Users Show ONE user</h1>
 
-  <img ng-src="{{ usersShow.user.image }}">
+  <img class="profile" ng-src="{{ usersShow.user.image }}">
   <h6>{{ usersShow.user.username }}</h6>
   <h6>{{ usersShow.user.email }}</h6>
-  <h6><strong>Bio: </strong>{{ usersShow.user.bio }}</h6>
+  <h6><strong>Bio: {{ usersShow.user.bio }}</strong></h6>
   <h6>Dress Size: {{ usersShow.user.dress_size }}</h6>
   <h6>Shoe Size: {{ usersShow.user.shoe_size }}</h6>
 
@@ -16,7 +16,14 @@
   <button ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()"
   ui-sref="itemsNew">Add a new Item</button>
 
+  <button ng-if="!usersShow.isCurrentUser()"><a href="mailto:{{usersShow.user.email}}">Contact me to arrange your swap!</a></button>
+
   <ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()">
   <ul>
-    <li ng-repeat="item in usersShow.user.items"><h4>{{ item.description }}</h4></li>
+    <li ng-repeat="item in usersShow.user.items">
+      <h4>{{ item.description }}</h4>
+      <h4>{{ item.condition }}</h4>
+      <h4>{{ item.size }}</h4>
+      <img class="item" ng-src="{{ item.image }}">
+    </li>
   </ul>

@@ -1,0 +1,8 @@
+button {
+  &.accepted {
+    color: yellow;
+  }
+  &.declined {
+    color: pink;
+  }
+}

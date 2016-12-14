@@ -1,0 +1,22 @@
+img  {
+    &.profile, &.item {
+      border: 10px black solid;
+      border-radius: 50%;
+      height: 150px;
+      width: 150px;
+      overflow: hidden;
+  }
+}
+.home {
+  background-image: url("backgroundone.jpg");
+}
+
+.drag-drop {
+  min-height: 200px;
+  width: 200px;
+  background-color: grey;
+  border-radius: 5px;
+  line-height: 0px;
+  color: white;
+  text-align: center;
+}

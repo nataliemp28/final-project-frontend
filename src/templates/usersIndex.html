@@ -1,10 +1,10 @@
 <section>
   <ul class="row">
-    <li ng-repeat="user in usersIndex.all" class="four columns">
+    <li ng-repeat="user in usersIndex.all" class="three columns">
       <a ui-sref="usersShow({ id: user.id })">
+        <img class="profile" ng-src="{{ user.image }}">
+        <p>{{ user.username }}</p>
 
-        <h2>{{ user.username }}</h2>
-        <img ng-src="{{ user.image }}">
       </a>
     </li>
   </ul>

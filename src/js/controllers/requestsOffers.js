@@ -8,6 +8,7 @@ function RequestsOffersController(Item, Swap, $state, $auth, RequestsOffers, Use
   const requestsOffersIndex = this;
   const currentUserId = $auth.getPayload().id;
 
+
   requestsOffersIndex.currentUser = User.get({id: currentUserId});
 
   function cancelRequest(swap) {
