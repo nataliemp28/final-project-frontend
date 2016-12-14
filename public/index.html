@@ -18,13 +18,17 @@
       <ul class="home-navbar">
 
         <li ng-if="!main.isLoggedIn()">
-          <a ui-sref="register" ui-sref-active="active">Register</a>
+          <a ui-sref="register" ui-sref="register">Register</a>
         </li>
         <li ng-if="!main.isLoggedIn()">
-          <a ui-sref="login" ui-sref-active="active">Login</a>
+          <a ui-sref="login" ui-sref="login">Login</a>
+        </li>
+        <li ng-if="!main.isLoggedIn()">
+          <a ui-sref="/" ui-sref-active="active"></a>
         </li>
 
-        <p class="welcome">Welcome {{ main.username }} to the London Fashion Exchange</p>
+
+        <li ng-if="main.isLoggedIn()" class="welcome">Welcome {{ main.currentUser.username }} to the London Fashion Exchange</li>
 
         <li ng-if="main.isLoggedIn()">
           <a ui-sref="usersIndex" ui-sref-active="active">List of Users</a>
@@ -32,14 +36,21 @@
         <li ng-if="main.isLoggedIn()">
           <a ng-click="main.logout()">Logout</a>
         </li>
+
+        <!-- <li ng-if="main.isLoggedIn()">
+          <a ui-sref="getCurrentUser({ id: main.userId })" ui-sref-active="active">My Profile</a>
+        </li> -->
+
         <li ng-if="main.isLoggedIn()">
           <a ui-sref="usersShow({ id: main.userId })" ui-sref-active="active">My Profile</a>
         </li>
+
+
         <li ng-if="main.isLoggedIn()">
           <a ui-sref="itemsIndex" ui-sref-active="active">View all items available</a>
         </li>
         <li ng-if="main.isLoggedIn()">
-          <a ui-sref="requestsOffers" ui-sref-active="active">View my requests & offers</a>
+          <a ui-sref="requestsOffers" ui-sref-active="active">View my requests and offers</a>
         </li>
       </ul>
     </nav>

@@ -23,8 +23,8 @@ function RegisterController($auth, $state, user) {
   register.submit = submit;
 }
 
-LoginController.$inject = ['$auth', '$state'];
-function LoginController($auth, $state) {
+LoginController.$inject = ['$auth', '$state', '$rootScope'];
+function LoginController($auth, $state, $rootScope) {
   const login = this;
 
   login.credentials = {};
@@ -32,6 +32,7 @@ function LoginController($auth, $state) {
   function submit() {
     $auth.login(login.credentials)
       .then(() => {
+        $rootScope.$broadcast('loggedIn');
         $state.go('itemsIndex');
       });
   }

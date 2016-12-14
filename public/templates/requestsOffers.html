@@ -7,8 +7,8 @@
       Request: {{swap.request.description}}<br>
       Offer: {{swap.offer.description}}<br>
       <span ng-show="swap.accepted === null">Status: Pending</span><br>
-      <span ng-show="!swap.accepted">Status: Declined</span><br>
-      <span ng-show="swap.accepted">Status: Accepted</span><br>
+      <span ng-show="swap.accepted === false">Status: Declined</span><br>
+      <span ng-show="swap.accepted === true">Status: Accepted</span><br>
       <button ng-click="requestsOffers.cancelRequest(swap)" ng-show="!swap.accepted">Cancel Request</button>
     </li>
   </div>
