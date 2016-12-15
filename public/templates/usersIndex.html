@@ -1,11 +1,16 @@
-<section>
-  <ul class="row">
-    <li ng-repeat="user in usersIndex.all" class="three columns">
-      <a ui-sref="usersShow({ id: user.id })">
-        <img class="profile" ng-src="{{ user.image }}">
-        <p>{{ user.username }}</p>
+<center>
+  <section>
+    <div class="usersIndexContainer">
 
-      </a>
-    </li>
-  </ul>
-</section>
+
+      <ul class="row">
+        <li ng-repeat="user in usersIndex.all" class="three columns usersIndex">
+          <a ui-sref="usersShow({ id: user.id })">
+            <div class="itemsIndex-image" style="background-image:url('{{ user.image }}')"></div>
+            <p>{{ user.username }}</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</center>

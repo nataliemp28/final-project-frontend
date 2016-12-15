@@ -1,29 +1,39 @@
-<section>
-  <h1>Users Show ONE user</h1>
+<div class="row">
+  <div class="six columns">
+    <img class="profile" ng-src="{{ usersShow.user.image }}">
+  </div>
+  <div class="six columns">
+    <h6>{{ usersShow.user.username }}</h6>
+    <h6>{{ usersShow.user.email }}</h6>
+    <h6><strong>Bio: {{ usersShow.user.bio }}</strong></h6>
+    <h6>Dress Size: {{ usersShow.user.dress_size }}</h6>
+    <h6>Shoe Size: {{ usersShow.user.shoe_size }}</h6>
 
-  <img class="profile" ng-src="{{ usersShow.user.image }}">
-  <h6>{{ usersShow.user.username }}</h6>
-  <h6>{{ usersShow.user.email }}</h6>
-  <h6><strong>Bio: {{ usersShow.user.bio }}</strong></h6>
-  <h6>Dress Size: {{ usersShow.user.dress_size }}</h6>
-  <h6>Shoe Size: {{ usersShow.user.shoe_size }}</h6>
+    <button ng-if="usersShow.isLoggedIn() && usersShow.isCurrentUser()" ui-sref="usersEdit({ id: usersShow.user.id })">Edit</button>
 
-  <button ng-if="usersShow.isLoggedIn() && usersShow.isCurrentUser()" ui-sref="usersEdit({ id: usersShow.user.id })">Edit</button>
+    <button ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()"
+    ui-sref="usersShow.delete({ id: usersShow.user.id })">Delete</button>
 
-  <button ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()"
-  ui-sref="usersShow.delete({ id: usersShow.user.id })">Delete</button>
+    <button ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()"
+    ui-sref="itemsNew">Add a new Item</button>
 
-  <button ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()"
-  ui-sref="itemsNew">Add a new Item</button>
+    <button ng-if="!usersShow.isCurrentUser()"><a href="mailto:{{usersShow.user.email}}">Contact me to arrange your swap!</a></button>
 
-  <button ng-if="!usersShow.isCurrentUser()"><a href="mailto:{{usersShow.user.email}}">Contact me to arrange your swap!</a></button>
-
-  <ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()">
-  <ul>
-    <li ng-repeat="item in usersShow.user.items">
-      <h4>{{ item.description }}</h4>
-      <h4>{{ item.condition }}</h4>
-      <h4>{{ item.size }}</h4>
-      <img class="item" ng-src="{{ item.image }}">
-    </li>
-  </ul>
+  </div>
+</div>
+<div class="row">
+    <ng-if="usersShow.isCurrentUser() && usersShow.isLoggedIn()">
+    <ul style="list-style:none">
+      <li ng-repeat="item in usersShow.user.items">
+        <div class="six columns">
+          <img class="item" ng-src="{{ item.image }}">
+        </div>
+        <div class="six columns">
+          <h4>{{ item.description }}</h4>
+          <h4>{{ item.condition }}</h4>
+          <h4>{{ item.size }}</h4>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

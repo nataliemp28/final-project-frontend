@@ -1,16 +1,21 @@
-<section>
-  <div class="container">
-    <div class="row">
-      <ul>
-        <li ng-repeat="item in itemsIndex.all" class="three columns" id="itemsIndex">
-          <a ui-sref="itemsShow({ id: item.id })">
-            <img class="item" ng-src="{{ item.image }}"></a>
-            <p>{{ item.description }}</p>
-            <p>{{ item.condition }}</p>
-            <p>{{ item.size }}</p>
-            <p>{{ item.user_id.username }}</p>
+<center>
+  <section>
+    <div class="itemsindexcontainer">
 
+    <h3>All items available to swap</h3>
 
-        </li>
-      </ul>
-</section>
+      <div class="row">
+        <ul>
+          <li ng-repeat="item in itemsIndex.all" class="three columns itemsIndex">
+            <a ui-sref="itemsShow({ id: item.id })">
+              <div class="itemsIndex-image" style="background-image:url('{{ item.image }}')"></div>
+              <p>{{ item.description }}</p>
+              <!-- <p>{{ item.condition }}</p>
+              <p>{{ item.size }}</p>
+              <p>{{ item.username }}</p> -->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</center>

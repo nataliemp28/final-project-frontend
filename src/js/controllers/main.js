@@ -29,7 +29,7 @@ function MainController($auth, $state, $rootScope, User) {
     });
   }
 
-  const protectedStates = ['usersEdit'];
+  const protectedStates = ['usersEdit', 'usersShow', 'usersIndex', 'usersProfile', 'itemsShow', 'itemsNew', 'itemsIndex'];
 
   function secureState(e, toState, toParams) {
 

@@ -13,7 +13,6 @@ const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
 const sequence = require('gulp-sequence');
-const livereload = require('gulp-livereload');
 
 // clean
 gulp.task('clean', () => {
@@ -54,8 +53,7 @@ gulp.task('scripts', () => {
     .pipe(concat('app.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('public/js'))
-    .pipe(livereload());
+    .pipe(gulp.dest('public/js'));
 });
 
 // styles
@@ -85,8 +83,13 @@ gulp.task('styles:vendor', () => {
 // html
 gulp.task('html', () => {
   return gulp.src('src/**/*.html')
-    .pipe(gulp.dest('public'))
-    .pipe(livereload());
+    .pipe(gulp.dest('public'));
+});
+
+// assets
+gulp.task('assets', () => {
+  return gulp.src('src/assets/**/*')
+    .pipe(gulp.dest('public/assets'));
 });
 
 // nodemon
@@ -101,10 +104,9 @@ gulp.task('nodemon', () => {
 
 // watch
 gulp.task('watch', () => {
-  livereload.listen();
   gulp.watch('src/**/*.html', ['html']);
   gulp.watch('src/**/*.js', ['scripts']);
   gulp.watch('src/**/*.scss', ['styles', 'styles:vendor']);
 });
 
-gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'styles:vendor', 'html'], 'watch', 'nodemon'));
+gulp.task('default', sequence('clean', ['bower:js', 'bower:css'], ['scripts', 'styles', 'styles:vendor', 'html', 'assets'], 'watch', 'nodemon'));

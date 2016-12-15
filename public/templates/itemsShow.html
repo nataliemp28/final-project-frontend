@@ -1,13 +1,15 @@
+<center>
 <section>
   <h1>Items Show One</h1>
 
-  <div class="container">
+  <hr>
+
 
     <div class="row">
-      <div class="one column"><img class="item"ng-src="{{ itemsShow.item.image }}"></div>
-      <h6>{{ itemsShow.item.description }}</h6>
-      <h6>{{ itemsShow.item.condition }}</h6>
-      <h6>{{ itemsShow.item.size }}</h6>
+      <img class="itemShow"ng-src="{{ itemsShow.item.image }}">
+      <p class "itemShowOne"><strong>Description: </strong>{{ itemsShow.item.description }}</p>
+      <p><strong>Condition: </strong>{{ itemsShow.item.condition }}</p>
+      <p><strong>Size: </strong>{{ itemsShow.item.size }}</p>
     </div>
   </div>
 
@@ -30,3 +32,4 @@
   </ul>
   <input type="submit" value="Swap!">
 </form>
+</center>

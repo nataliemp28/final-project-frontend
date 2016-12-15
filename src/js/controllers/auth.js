@@ -3,13 +3,13 @@ angular.module('finalProject')
   .controller('LoginController', LoginController);
 
 RegisterController.$inject = ['$auth', '$state', 'User'];
-function RegisterController($auth, $state, user) {
+function RegisterController($auth, $state, User) {
   const register = this;
 
   register.user = {};
-  user.isLoggedIn = $auth.isAuthenticated;
+  User.isLoggedIn = $auth.isAuthenticated;
 
-  if (user.isLoggedIn()) {
+  if (User.isLoggedIn()) {
     const currentUserId = $auth.getPayload().id;
     $state.go('itemsShow', {id: currentUserId});
   }
