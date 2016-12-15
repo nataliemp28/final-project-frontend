@@ -6,14 +6,14 @@
 body {
   background-color: #f6f6f6;
   font-family: 'Nunito Sans', sans-serif;
-  h1,h2,h3,h4,h5,h6,p,a,ul,li {
+  h1,h2,h3,h4,h5,p,a,ul,li {
     font-family: 'Nunito Sans', sans-serif;
     color: #302B2B;
   }
 }
 
 main.container {
-  padding-top: 110px;
+  padding-top: 65px;
 }
 
 img {
@@ -25,10 +25,13 @@ h6 {
   font-size: 20px;
   padding-top: 15px;
   font-weight: bold;
+  color: #F0386B;
+  font-family: 'Nunito Sans', sans-serif;
 }
 h3 {
   text-align: center;
   font-size: 40px;
+  margin-top: 20px;
 }
 
 .itemsIndex, .usersIndex {
@@ -46,36 +49,14 @@ h3 {
   }
 }
 
-.usersIndex {
-  .itemsIndex-image {
-    background-size: cover;
+.alreadyOffered {
+  a {
+    text-decoration: line-through;
+    cursor: default;
+    color: grey;
+    opacity: 0.5;
   }
 }
-
-.itemsIndex-image {
-  background-color: white;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-bottom: 20px;
-  &:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-  }
-}
-
-// .items {
-//   margin-top: 20px;
-// }
-// .alreadyOffered {
-//   a {
-//     text-decoration: line-through;
-//     cursor: default;
-//     color: grey;
-//     opacity: 0.5;
-//   }
-// }
 
 
 .hometext {

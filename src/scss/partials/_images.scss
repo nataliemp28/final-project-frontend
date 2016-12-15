@@ -29,6 +29,13 @@ img {
       background-color: white;
       border-radius: 5%;
   }
+    &.itemsIndex-image {
+      height: 220px;
+      width: 200px;
+      overflow: hidden;
+      background-color: white;
+      border-radius: 5%;
+    }
 }
 .drag-drop {
   min-height: 200px;
@@ -38,4 +45,23 @@ img {
   line-height: 0px;
   color: white;
   text-align: center;
+}
+
+.usersIndex {
+  .itemsIndex-image {
+    background-size: cover;
+  }
+}
+
+.itemsIndex-image, .userProfile-image {
+  background-color: white;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
 }

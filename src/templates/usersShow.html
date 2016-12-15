@@ -1,13 +1,14 @@
+<h1> User Profile </h1>
 <div class="row">
   <div class="six columns">
-    <img class="profile" ng-src="{{ usersShow.user.image }}">
+    <img class="userProfile-image" ng-src="{{ usersShow.user.image }}">
   </div>
   <div class="six columns">
-    <h6>{{ usersShow.user.username }}</h6>
-    <h6>{{ usersShow.user.email }}</h6>
-    <h6><strong>Bio: {{ usersShow.user.bio }}</strong></h6>
-    <h6>Dress Size: {{ usersShow.user.dress_size }}</h6>
-    <h6>Shoe Size: {{ usersShow.user.shoe_size }}</h6>
+    <p>{{ usersShow.user.username }}</p>
+    <p>{{ usersShow.user.email }}</p>
+    <p><strong>Bio: {{ usersShow.user.bio }}</strong></p>
+    <p>Dress Size: {{ usersShow.user.dress_size }}</p>
+    <p>Shoe Size: {{ usersShow.user.shoe_size }}</p>
 
     <button ng-if="usersShow.isLoggedIn() && usersShow.isCurrentUser()" ui-sref="usersEdit({ id: usersShow.user.id })">Edit</button>
 
@@ -26,7 +27,7 @@
     <ul style="list-style:none">
       <li ng-repeat="item in usersShow.user.items">
         <div class="six columns">
-          <img class="item" ng-src="{{ item.image }}">
+          <img class="itemsIndex-image" ng-src="{{ item.image }}">
         </div>
         <div class="six columns">
           <h4>{{ item.description }}</h4>
