@@ -1,4 +1,4 @@
-<h1>{{ usersShow.user.username }}</h1>
+<h3>{{ usersShow.user.username }}</h3>
     <hr>
 <div class="row">
   <div class="six columns">
@@ -6,10 +6,12 @@
   </div>
   <div class="six columns">
     <!-- <p></p> -->
-    <p>Email: {{ usersShow.user.email }}</p>
-    <p>Bio: {{ usersShow.user.bio }}></p>
-    <p>Dress Size: {{ usersShow.user.dress_size }}</p>
+    <p>Email: {{ usersShow.user.email }}</p><br>
+    <p>Bio:<br> {{ usersShow.user.bio }}</p><br>
+    <p>Dress Size: {{ usersShow.user.dress_size }}</p><br>
     <p>Shoe Size: {{ usersShow.user.shoe_size }}</p>
+
+    <br>
 
     <button ng-if="usersShow.isLoggedIn() && usersShow.isCurrentUser()" ui-sref="usersEdit({ id: usersShow.user.id })">Edit</button>
 
@@ -31,9 +33,12 @@
         <img ng-src="{{ item.image }}">
       </div>
       <div class="six columns">
-        <p>{{ item.description }}</p>
-        <p>{{ item.condition }}</p>
-        <p>{{ item.size }}</p>
+        <br>
+        <p>Description:<br> {{ item.description }}</p>
+        <p>Condition: {{ item.condition }}</p>
+        <p>Size: {{ item.size }}</p>
+        <!-- <button ng-if="usersShow.isLoggedIn() && usersShow.isCurrentUser()">
+          <img src="itemsEdit.item.image">Edit</button> -->
       </div>
     </li>
   </ul>

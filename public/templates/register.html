@@ -1,10 +1,9 @@
 <center class="toppadding">
   <form novalidate ng-submit="register.submit()">
     <div>
-      
-      <drag-drop base64="register.user.base64" src="register.user.image">Add New Image</drag-drop>
+      <drag-drop base64="register.user.base64" src="register.user.image">Drag and Drop image</drag-drop>
     </div>
-
+    <br>
     <div>
       <!-- <label>Username</label> -->
       <input type="text" placeholder="Username" ng-model="register.user.username">
@@ -21,6 +20,11 @@
       <!-- <label>Password Confirmation</label> -->
       <input type="password" placeholder="Password Confirmation" ng-model="register.user.password_confirmation">
     </div>
+
+    <div>
+      <input type="text" placeholder="Bio" ng-model="register.user.bio">
+    </div>
+
     <div>
       <!-- <label>Dress Size</label> -->
       <input type="text" placeholder="Dress Size" ng-model="register.user.dress_size">

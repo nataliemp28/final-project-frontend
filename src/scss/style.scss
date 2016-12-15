@@ -7,11 +7,16 @@ body {
   background-color: #DBDBDB;
   font-family: 'Libre Franklin', sans-serif;
   text-decoration: none;
+  list-style-type: none;
   h1,h2,h3,h4,h5,p,a,ul,li {
     font-family: 'Libre Franklin', sans-serif;
     color: #302B2B;
     text-decoration: none;
+    list-style-type: none;
   }
+}
+p {
+  margin: 2px;
 }
 .bold {
   font-weight: 900;
@@ -31,11 +36,10 @@ img {
 }
 
 h6 {
-  text-align: left;
-  font-size: 20px;
+  text-align: center;
+  font-size: 18px;
   padding-top: 20px;
   font-weight: bold;
-  color: #F0386B;
   font-family: 'Nunito Sans', sans-serif;
 }
 h3 {
@@ -62,22 +66,22 @@ h3 {
 .alreadyOffered {
   a {
     text-decoration: line-through;
+    text-decoration-style: wavy;
     cursor: default;
     color: grey;
     opacity: 0.5;
   }
 }
-
-
 .hometext {
-  width: 400px;
-  height: 400px;
-  margin: 0;
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
   position: absolute;
-  top: 68vh;
-  left: 56%;
+  top: 45vh;
+  left: 50%;
   transform: translate(-50%,-50%);
-  font-size: 28px;
+  font-size: 24px;
+  text-align: center;
 }
 
 .itemsShowOne {

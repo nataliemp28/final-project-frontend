@@ -1,12 +1,18 @@
 form {
-  input[type="text"] {
-    
-  }
-  input[type="submit"]{
-
+  input[type="text"], input[type="email"], input[type="password"], input[type="submit"] {
+    height: 38px;
+    padding: 2px 10px;
+    background-color: #fff;
+    border: 1px solid grey;
+    border-radius: 1px;
+    box-shadow: none;
+    box-sizing: border-box;
   }
 }
 
 .toppadding{
   margin-top: 25px;
+}
+.regForm {
+  margin: 2px;
 }

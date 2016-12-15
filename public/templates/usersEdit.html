@@ -1,37 +1,38 @@
-<section>
-  <form novalidate ng-submit="usersEdit.update()">
+<center>
+  <section>
+    <form novalidate ng-submit="usersEdit.update()">
 
-    <div>
-      <label>Username</label>
-      <input type="text" placeholder="Username" ng-model="usersEdit.user.username">
-    </div>
+      <div>
+        <label><h3>Drag & Drop Image Below</h3></label>
+        <drag-drop base64="usersEdit.user.base64" placeholder="Image" ng-model="usersEdit.user.image"></drag-drop>
+      </div>
+      <div>
+        <!-- <label>Username</label> -->
+        <input type="text" placeholder="Username" ng-model="usersEdit.user.username">
+      </div>
 
-    <div>
-      <label>Email</label>
-      <input type="email" placeholder="Email" ng-model="usersEdit.user.email">
-    </div>
+      <div>
+        <!-- <label>Email</label> -->
+        <input type="email" placeholder="Email" ng-model="usersEdit.user.email">
+      </div>
 
-    <div>
-      <label>Image</label>
-      <drag-drop base64="usersEdit.user.base64" placeholder="Image" ng-model="usersEdit.user.image"></drag-drop>
-    </div>
+      <div>
+        <!-- <label>Bio</label> -->
+        <input type="text" placeholder="Bio" ng-model="usersEdit.user.bio">
+      </div>
 
-    <div>
-      <label>Bio</label>
-      <input type="text" placeholder="Bio" ng-model="usersEdit.user.bio">
-    </div>
+      <div>
+        <!-- <label>Dress Size</label> -->
+        <input type="text" placeholder="Dress Size" ng-model="usersEdit.user.dress_size">
+      </div>
 
-    <div>
-      <label>Dress Size</label>
-      <input type="text" placeholder="Dress Size" ng-model="usersEdit.user.dress_size">
-    </div>
-    
-    <div>
-      <label>Shoe Size</label>
-      <input type="text" placeholder="Shoe Size" ng-model="usersEdit.user.shoe_size">
-    </div>
+      <div>
+        <!-- <label>Shoe Size</label> -->
+        <input type="text" placeholder="Shoe Size" ng-model="usersEdit.user.shoe_size">
+      </div>
 
 
-    <button>Update</button>
-  </form>
-</section>
+      <button>Update</button>
+    </form>
+  </section>
+</center>

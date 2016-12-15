@@ -1,27 +1,29 @@
+<center>
 <section class="row">
   <form ng-submit="itemsNew.create()">
     <div class="twelve columns">
-      <label>Image</label>
+      <label><h3>Drag & Drop Image Below</h3></label>
 
-      <drag-drop base64="itemsNew.item.base64" src="itemsNew.item.image">Add New Image</drag-drop>
+      <drag-drop base64="itemsNew.item.base64" class="itemShow" src="itemsNew.item.image">Add New Image</drag-drop>
     </div>
       <!-- <input type="text" name="image" placeholder="image" ng-model="itemsNew.item.image" class="u-full-width">
     </div> -->
     <div class="twelve columns">
-      <label>Description</label>
-      <input type="text" name="description" placeholder="description" ng-model="itemsNew.item.description" class="u-full-width">
+      <!-- <label>Description</label> -->
+      <input type="text" name="description" placeholder="Description" ng-model="itemsNew.item.description" class="u-full-width">
     </div>
 
     <div class="twelve columns">
-      <label>Condition</label>
-      <input type="text" name="condition" placeholder="condition" ng-model="itemsNew.item.condition" class="u-full-width">
+      <!-- <label>Condition</label> -->
+      <input type="text" name="condition" placeholder="Condition" ng-model="itemsNew.item.condition" class="u-full-width">
     </div>
 
     <div class="twelve columns">
-      <label>Size</label>
-      <input type="text" name="size" placeholder="size" ng-model="itemsNew.item.size" class="u-full-width">
+      <!-- <label>Size</label> -->
+      <input type="text" name="size" placeholder="Size" ng-model="itemsNew.item.size" class="u-full-width">
     </div>
 
     <button>Create</button>
   </form>
 </section>
+</center>
