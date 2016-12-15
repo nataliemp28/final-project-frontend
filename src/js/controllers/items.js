@@ -36,7 +36,7 @@ function ItemsShowController(Item, $state, $auth, User, Swap) {
 
     User.get({id: currentUserId}).$promise.then((data) => {
       itemsShow.user = data;
-      
+
 
       console.log('User current items:', itemsShow.user.item_ids);
 

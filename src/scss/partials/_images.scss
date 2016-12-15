@@ -10,7 +10,6 @@
 }
 img {
   &.itemlisting, &.profileList  {
-      border-radius: 2%;
       height: 220px;
       width: 200px;
       overflow: hidden;
@@ -27,24 +26,23 @@ img {
       width: 200px;
       overflow: hidden;
       background-color: white;
-      border-radius: 5%;
   }
-    &.itemsIndex-image {
+    &.itemsIndex-image, &.itemsIndex {
       height: 220px;
       width: 200px;
       overflow: hidden;
       background-color: white;
-      border-radius: 5%;
     }
 }
 .drag-drop {
   min-height: 200px;
   width: 200px;
-  background-color: grey;
+  background-color: yellow;
   border-radius: 5px;
   line-height: 0px;
   color: white;
   text-align: center;
+
 }
 
 .usersIndex {
@@ -53,7 +51,7 @@ img {
   }
 }
 
-.itemsIndex-image, .userProfile-image {
+.itemsIndex-image {
   background-color: white;
   background-position: center;
   background-size: contain;
@@ -63,5 +61,15 @@ img {
     content: "";
     display: block;
     padding-bottom: 100%;
+  }
+}
+
+.six.columns {
+  &:nth-child(2n+1) {
+    clear: left;
+    margin-left: 0;
+    img {
+      width: 100%;
+    }
   }
 }

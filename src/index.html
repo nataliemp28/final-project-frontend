@@ -8,13 +8,13 @@
   <link rel="stylesheet" href="/css/style.css">
   <script src="/js/vendor.js" charset="utf-8"></script>
   <script src="/js/app.js" charset="utf-8"></script>
-  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet">
 </head>
 <body ng-controller="MainController as main">
 
   <header>
     <nav class="u-full-width">
-      <img class="icon" src="/assets/images/icon.png" ng-click="home">
+      <img class="icon" src="/assets/images/icon.png" ng-click="home" ui-sref-active="home">
 
       <h6 class="brandbox">London Fashion <strong>X</strong>change</h6>
       <p class="brandboxWelcome" ng-if="main.isLoggedIn()">Welcome {{ main.currentUser.username }}</p>
@@ -27,9 +27,12 @@
         <li ng-if="!main.isLoggedIn()">
           <a ui-sref="login" ui-sref-active="login">Login</a>
         </li>
-        <li ng-if="!main.isLoggedIn()">
-          <a ui-sref="/" ui-sref-active="active"></a>
+        <li ng-if="main.isLoggedIn()">
+          <a ng-click="main.logout()">Logout</a>
         </li>
+        <!-- <li ng-if="!main.isLoggedIn()">
+          <a ui-sref="/" ui-sref-active="active"></a>
+        </li> -->
         <li ng-if="main.isLoggedIn()">
           <a ui-sref="usersShow({ id: main.currentUser.id })">My Profile</a>
         </li>
@@ -37,14 +40,12 @@
           <a ui-sref="usersIndex" ui-sref-active="usersIndex">List of Users</a>
         </li>
         <li ng-if="main.isLoggedIn()">
-          <a ng-click="main.logout()">Logout</a>
+          <a ui-sref="itemsIndex" ui-sref-active="active">All Items</a>
         </li>
         <li ng-if="main.isLoggedIn()">
-          <a ui-sref="itemsIndex" ui-sref-active="active">View all items available</a>
+          <a ui-sref="requestsOffers" ui-sref-active="active">My Requests and Offers</a>
         </li>
-        <li ng-if="main.isLoggedIn()">
-          <a ui-sref="requestsOffers" ui-sref-active="active">View my requests and offers</a>
-        </li>
+
       </ul>
       </div>
     </nav>

@@ -4,12 +4,22 @@
 @import 'partials/images';
 
 body {
-  background-color: #f6f6f6;
-  font-family: 'Nunito Sans', sans-serif;
+  background-color: #DBDBDB;
+  font-family: 'Libre Franklin', sans-serif;
+  text-decoration: none;
   h1,h2,h3,h4,h5,p,a,ul,li {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
     color: #302B2B;
+    text-decoration: none;
   }
+}
+.bold {
+  font-weight: 900;
+  padding: 1px!important;
+  margin: 1px!important;
+}
+h1 {
+  margin-top: 15px;
 }
 
 main.container {
@@ -23,7 +33,7 @@ img {
 h6 {
   text-align: left;
   font-size: 20px;
-  padding-top: 15px;
+  padding-top: 20px;
   font-weight: bold;
   color: #F0386B;
   font-family: 'Nunito Sans', sans-serif;

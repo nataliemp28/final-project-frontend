@@ -1,38 +1,53 @@
-<h3>My Requests</h3> 
+<center>
+<div class="row">
+  <div class="six columnns">
+    <h3>My Requests</h3>
+    <hr>
+    <ul style:"list-style: none">
+      <div ng-repeat="item in requestsOffers.currentUser.items">
+        <li ng-repeat="swap in item.offers">
 
-<!-- Here: {{requestsOffers.currentUser}} -->
-<ul>
-  <div ng-repeat="item in requestsOffers.currentUser.items">
-    <li ng-repeat="swap in item.offers">
-      Request: {{swap.request.description}}<br>
-      Condition: {{swap.request.condition}}<br>
-      Size: {{swap.request.size}}<br>
-      <img class="item" ng-src="{{ swap.request.image.url }}"><br>
+            <p class="bold">Requesting: </strong>{{swap.request.description}}</p><br>
+            <!-- <p class="bold">Condition: </strong>{{swap.request.condition}}</p><br>
+            <p class="bold">Size: </strong>{{swap.request.size}}</p><br> -->
+            <img class="itemsIndex" ng-src="{{ swap.request.image.url }}"><br>
 
-      Offer: {{swap.offer.description}}<br>
-      Condition: {{swap.offer.condition}}<br>
-      Size: {{swap.offer.size}}<br>
+            <p class="bold">Offering: </strong>{{swap.offer.description}}</p><br>
+            <!-- <p class="bold">Condition: </strong>{{swap.offer.condition}}</p><br>
+            <p class="bold">Size: </strong>{{swap.offer.size}}</p><br> -->
+            <img class="itemsIndex" ng-src="{{ swap.offer.image.url }}"><br>
 
 
-      <span ng-show="swap.accepted === null">Status: Pending</span><br>
-      <span ng-show="swap.accepted === false">Status: Declined</span><br>
-      <span ng-show="swap.accepted === true">Status: Accepted</span><br>
-      <button ng-click="requestsOffers.cancelRequest(swap)" ng-show="!swap.accepted">Cancel Request</button>
-    </li>
+            <span ng-show="swap.accepted === null">Status: Pending</span><br>
+            <span ng-show="swap.accepted === false">Status: Declined</span><br>
+            <span ng-show="swap.accepted === true">Status: Accepted</span><br>
+            <button ng-click="requestsOffers.cancelRequest(swap)" ng-show="!swap.accepted">Cancel Request</button>
+          </li>
+        </div>
+      </ul>
+    </div>
   </div>
-</ul>
 
 
-<h1>My Offers</h1> Someone wants these things from me.
+<div class="row">
+  <div class="six columnns">
+    <h1>My Offers</h1>
+    <hr>
 
-<ul>
-  <div ng-repeat="item in requestsOffers.currentUser.items">
-    <li ng-repeat="swap in item.requests">
-      Request: {{swap.request.description}}<br>
-      Offer: {{swap.offer.description}}<br>
-      <button ng-click="requestsOffers.acceptSwap(swap)" ng-class="{'accepted': swap.accepted}">Accept</button>
-      <button ui-sref="usersShow({id: {{swap.offer.user_id}}})">Contact user</button>
-      <button ng-click="requestsOffers.declineSwap(swap)" ng-class="{'declined': swap.accepted === false}">Decline</button>
-    </li>
+
+    <ul>
+      <div ng-repeat="item in requestsOffers.currentUser.items">
+        <li ng-repeat="swap in item.requests">
+          <p class="bold">Requesting: </strong>{{swap.request.description}}</p>
+          <img class="itemsIndex" ng-src="{{ swap.request.image.url }}">
+          <p class="bold">Offering: </strong>{{swap.offer.description}}</p>
+          <img class="itemsIndex" ng-src="{{ swap.offer.image.url }}"><br>
+          <button ng-click="requestsOffers.acceptSwap(swap)" ng-class="{'accepted': swap.accepted}">Accept</button>
+          <button ui-sref="usersShow({id: {{swap.offer.user_id}}})">Contact user</button>
+          <button ng-click="requestsOffers.declineSwap(swap)" ng-class="{'declined': swap.accepted === false}">Decline</button>
+        </li>
+      </div>
+    </ul>
   </div>
-</ul>
+</div>
+</center>
