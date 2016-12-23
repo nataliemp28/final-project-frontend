@@ -1,5 +1,5 @@
 angular.module('finalProject', ['ngResource', 'ui.router', 'satellizer'])
-   .constant('API_URL', window.location.hostname === 'localhost' ? 'http://localhost:3000/api' : '//london-fashion-exchange.herokuapp.com/api')
+   .constant('API_URL', window.location.hostname === 'localhost' ? 'http://localhost:3000/api' : '//london-fashion-exchange-api.herokuapp.com/api')
   .config(Auth);
 
 Auth.$inject = ['$authProvider', 'API_URL'];
