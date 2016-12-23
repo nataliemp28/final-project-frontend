@@ -34,6 +34,8 @@ function LoginController($auth, $state, $rootScope) {
       .then(() => {
         $rootScope.$broadcast('loggedIn');
         $state.go('itemsIndex');
+      }, (err) => {
+        console.log(err);
       });
   }
 
