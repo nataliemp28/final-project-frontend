@@ -1,7 +1,7 @@
-<h1>London Fashion Xchange</h1>
+<h1>London Fashion Xchange - Project 4</h1>
 
 <h2>Overview</h2>
-<p>This project was built using a Ruby on Rails API with an AngularJS front end. I utilised the CSS framework Skeleton for styling and Amazon Web Services to enable drag and drop images.</P>
+<p>This project was built using a Ruby on Rails API with an AngularJS front end. I utilised the CSS framework Skeleton for styling and Amazon Web Services to enable drag and drop images.</p>
 
 <h2>Technologies</h2>
 <p>Ruby on Rails API, PostgreSQL, AngularJS, Skeleton, HTML, SCSS, AWS, Sketch, Trello</p>
