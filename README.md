@@ -4,7 +4,7 @@
 <p>This project was built using a Ruby on Rails API with an AngularJS front end. I utilised the CSS framework Skeleton for styling and Amazon Web Services to enable drag and drop images.</p>
 
 <h2>Technologies</h2>
-<p>Ruby on Rails API, PostgreSQL, AngularJS, Skeleton, HTML, SCSS, AWS, Sketch, Trello</p>
+<p>Ruby on Rails API, PostgreSQL, AngularJS, Skeleton, HTML, SCSS, AWS, Sketch, Trello, Git/Github</p>
 
 <h2>Description</h2>
 <p>This was my final project with WDI and was a solo project. I chose to build a clothing exchange website, enabling registered users to offer their clothing or accessories in exchange for an item owned by another user. The first part of this project involved drawing out an ERD to establish the relationships between my models on the API. It was established that an item could only have one owner however a user could have many items. The relationship with the swaps was slightly more complicated as an item could have many offers for exchange from different users.
