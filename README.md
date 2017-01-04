@@ -1,5 +1,3 @@
-# final-project-frontend
-
 <h1>London Fashion Xchange</h1>
 
 <h2>Overview</h2>
